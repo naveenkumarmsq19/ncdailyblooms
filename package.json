@@ -1,0 +1,17 @@
+{
+  "name": "nc-daily-blooms",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22.13.0"},
+  "workspaces": ["frontend", "backend"],
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "concurrently -k -n api,web \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w frontend",
+    "typecheck": "npm run typecheck -w frontend",
+    "test": "npm test -w backend",
+    "start": "concurrently -k -n api,web \"npm start -w backend\" \"npm start -w frontend\""
+  },
+  "devDependencies": {"concurrently": "9.2.1"}
+}

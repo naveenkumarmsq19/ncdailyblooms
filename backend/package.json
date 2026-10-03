@@ -1,0 +1,13 @@
+{
+  "name": "@nc-daily-blooms/backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {"dotenv": "17.2.3", "express": "5.2.1", "mongodb": "7.7.0", "zod": "3.25.76"},
+  "devDependencies": {"mongodb-memory-server": "11.3.0", "supertest": "7.2.2"}
+}
