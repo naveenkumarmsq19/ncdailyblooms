@@ -8,7 +8,7 @@ export async function initializeDatabase(db) {
     db.collection('orders').createIndex({created_at: -1}),
   ]);
   await db.collection('catalog').bulkWrite(products.map(p => ({updateOne: {
-    filter: {_id: p.id}, update: {$setOnInsert: {
+    filter: {_id: p.id}, update: {$set: { image: p.image, updated_at: new Date().toISOString() }, $setOnInsert: {
       name: p.name, kn: p.kn, description: p.desc, description_kn: p.descKn,
       unit: p.unit, unit_kn: p.unitKn, category: p.category, image: p.image,
       color: p.color, available: true, active: true, guide_price: null, updated_at: new Date().toISOString(),
